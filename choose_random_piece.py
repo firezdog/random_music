@@ -1,6 +1,7 @@
 import csv
 from os.path import exists
 from random import randint
+import webbrowser
 from get_music_list import get_music_list
 
 
@@ -22,8 +23,7 @@ def get_pieces():
 
 
 if __name__ == "__main__":
-    try:
-        print(get_random_song(get_pieces()))
-    except Exception as get_music_exception:
-        print("Error while getting song:")
-        print(get_music_exception)
+    song = get_random_song(get_pieces())
+    print(song)
+    webbrowser.register('google-chrome', webbrowser.Chrome('google-chrome'))
+    webbrowser.open_new_tab('http://www.google.com/search?q=' + song)

@@ -23,4 +23,5 @@ def get_content():
 def write_music_csv(music):
     with open('music.csv', encoding='utf-16', mode='w') as music_file:
         music_writer = csv.writer(music_file)
-        [music_writer.writerow([piece]) for (index, piece) in enumerate(music) if index > 0]
+        for piece in music[1:]:
+            music_writer.writerow([piece])
