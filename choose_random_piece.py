@@ -6,7 +6,7 @@ from get_music_list import get_music_list
 
 
 def get_random_song(music_list):
-    random_index = randint(0, len(music_list))
+    random_index = randint(0, len(music_list) - 1)
     piece = music_list[random_index]
     return piece[0]
 
