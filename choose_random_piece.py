@@ -23,7 +23,10 @@ def get_pieces():
 
 
 if __name__ == "__main__":
-    song = get_random_song(get_pieces())
-    print(song)
+    song = get_random_song(get_pieces()).encode('ascii', 'ignore').decode('ascii')
     webbrowser.register('google-chrome', webbrowser.Chrome('google-chrome'))
-    webbrowser.open_new_tab('http://www.google.com/search?q=' + song)
+    try:
+        webbrowser.open_new_tab('http://www.google.com/search?q={}'.format(song))
+    except Exception as search_exception:
+        print('Error while trying to search for song {}'.format(song))
+        print(search_exception)
